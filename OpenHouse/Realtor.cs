@@ -17,6 +17,7 @@ namespace OpenHouse
             {
                 Room aRoom = new Room();
                 aRoom.SetName(Rand.Next(7));
+                Rooms.Add(aRoom);
             }
             
 
@@ -49,6 +50,17 @@ namespace OpenHouse
             }
             return false;
 
+        }
+        public void ShowHouse()
+        {
+            foreach(Room room in Rooms)
+            {
+                if (GetYesNo("Do you want to see the: " + room.Name))
+                {
+                    room.ShowItems();
+                }
+            }
+            Console.WriteLine("Have a wonderful day");
         }
     }
 }

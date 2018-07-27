@@ -60,5 +60,18 @@ namespace OpenHouse
                     break;
             }
         }
+        public void ShowItems()
+        {
+            Console.WriteLine("The " + Name + " has many items including:");
+            foreach(Furniture item in Items)
+            {
+                Console.WriteLine("A " + item.Type + " ");
+                Console.WriteLine("It is " + item.Age + " years old.");
+                Console.WriteLine("Its color is " + item.Color + " .");
+                Console.WriteLine("The status of it being comfortable is " + item.IsComfortable);
+                Console.WriteLine("The next item is");
+                Console.WriteLine();
+            }
+        }
     }
 }

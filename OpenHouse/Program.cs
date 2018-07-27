@@ -6,7 +6,8 @@ namespace OpenHouse
     {
         static void Main(string[] args)
         {
-            
+            Realtor realtor = new Realtor();
+            realtor.ShowHouse();
         }
     }
 }
