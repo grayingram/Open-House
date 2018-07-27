@@ -8,6 +8,8 @@ namespace OpenHouse
         {
             Realtor realtor = new Realtor();
             realtor.ShowHouse();
+            Console.ReadLine();
         }
+
     }
 }

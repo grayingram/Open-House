@@ -6,7 +6,7 @@ namespace OpenHouse
 {
     class Furniture
     {
-        public int Age { get; set; }
+        public int Age { get; set; } = 1;
         public string Type { get; set; }
         public bool IsComfortable { get; set; }
         public string Color { get; set; }
@@ -84,6 +84,9 @@ namespace OpenHouse
                 case (5):
                     Type = "Lamp";
                     break;
+                default:
+                    Type = "Stool";
+                    break;
             }
         }
         public void SetColor(int num)
@@ -108,6 +111,9 @@ namespace OpenHouse
                     break;
                 case (5):
                     Color = "Green";
+                    break;
+                default:
+                    Color = "Yellow";
                     break;
             }
         }

@@ -20,6 +20,7 @@ namespace OpenHouse
                 item.SetComfy(Rond.Next(2));
                 item.SetType(Rond.Next(6));
                 item.SetColor(Rond.Next(6));
+                
                 Items.Add(item);
 
             }
@@ -57,6 +58,7 @@ namespace OpenHouse
                     
 
                 default:
+                    Name = "Storage";
                     break;
             }
         }
@@ -71,6 +73,7 @@ namespace OpenHouse
                 Console.WriteLine("The status of it being comfortable is " + item.IsComfortable);
                 Console.WriteLine("The next item is");
                 Console.WriteLine();
+                Console.ReadLine();
             }
         }
     }

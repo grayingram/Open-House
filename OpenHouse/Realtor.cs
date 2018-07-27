@@ -58,6 +58,7 @@ namespace OpenHouse
                 if (GetYesNo("Do you want to see the: " + room.Name))
                 {
                     room.ShowItems();
+
                 }
             }
             Console.WriteLine("Have a wonderful day");
