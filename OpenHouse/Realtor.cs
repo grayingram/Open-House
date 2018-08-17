@@ -14,13 +14,7 @@ namespace OpenHouse
         {
             int numofRooms = Rand.Next(7);
             for(int i = 0; i < numofRooms; i++)
-            {
-                Room aRoom = new Room();
-                aRoom.SetName(Rand.Next(7));
-                Rooms.Add(aRoom);
-            }
-            
-
+                Rooms.Add(new Room(Room.Rooms[i]));
         }
         public string GetResponse(string question)
         {
