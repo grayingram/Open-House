@@ -1,14 +1,13 @@
-﻿using System;
-
+﻿
 namespace OpenHouse
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Realtor realtor = new Realtor();
-            realtor.ShowHouse();
-            Console.ReadLine();
+            Realtor realtor = new Realtor("Graygray");
+            House house = new House();
+            realtor.ShowHouse(house);
         }
 
     }

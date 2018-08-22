@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace OpenHouse
 {
@@ -16,7 +15,7 @@ namespace OpenHouse
         {
             Name = name;
 
-            int items = Rond.Next(5);
+            int items = Rond.Next(1, 5);
             for (int j = 0; j < items; j++)
             {
                 Furniture item = new Furniture();
@@ -32,14 +31,16 @@ namespace OpenHouse
         public void ShowItems()
         {
             Console.WriteLine("The " + Name + " has many items including:");
-            foreach (Furniture item in Items)
+            for (int i = 0; i < Items.Count; i++)
             {
-                Console.WriteLine("A " + item.Type + " ");
-                Console.WriteLine("It is " + item.Age + " years old.");
-                Console.WriteLine("Its color is " + item.Color + " .");
-                Console.WriteLine("The status of it being comfortable is " + item.IsComfortable);
-                Console.WriteLine("The next item is");
-                Console.WriteLine();
+                Console.WriteLine("A " + Items[i].Type + " ");
+                Console.WriteLine("It is " + Items[i].Age + " years old.");
+                Console.WriteLine("Its color is " + Items[i].Color + ".");
+                Console.WriteLine($"The {Items[i].Type} is {(Items[i].IsComfortable ? "" : "un")}comfortable.");
+
+                if (i + 1 != Items.Count)
+                    Console.WriteLine("\nThe next item is:");
+
                 Console.ReadLine();
             }
         }
