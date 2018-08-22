@@ -7,52 +7,45 @@ namespace OpenHouse
     class Realtor
     {
         public string Name { get; set; }
-        public Random Rand { get; set; } = new Random();
-        public List<Room> Rooms { get; set; } = new List<Room>();
 
-        public Realtor()
+        public Realtor(string name)
         {
-            int numofRooms = Rand.Next(7);
-            for(int i = 0; i < numofRooms; i++)
-                Rooms.Add(new Room(Room.Rooms[i]));
+            Name = name;
         }
+
         public string GetResponse(string question)
         {
             Console.WriteLine(question);
             string response = Console.ReadLine();
             while (String.IsNullOrWhiteSpace(response))
             {
-                Console.WriteLine("Please enter an actual value for the question\n" + question);
+                Console.WriteLine("Please enter an actual value for the question.\n" + question);
                 response = Console.ReadLine();
             }
-
             return response;
         }
         public bool GetYesNo(string question)
         {
-            string response = GetResponse(question);
-            response = response.ToUpper();
+            string response = GetResponse(question).ToUpper();
             while (!(response.Equals("YES")) && !(response.Equals("NO")))
             {
-                Console.WriteLine("Please enter yes or no.");
-                response = GetResponse(question);
-                response = response.ToUpper();
+                response = GetResponse("Please enter yes or no. " + question).ToUpper();
             }
-            if (response == "YES")
-            {
-                return true;
-            }
-            return false;
-
+            return response == "YES";
         }
-        public void ShowHouse()
+        public void ShowHouse(House house)
         {
-            foreach(Room room in Rooms)
+            Console.WriteLine("Welcome to our open house!");
+            Console.WriteLine($"My name is {Name}.");
+
+            string name = GetResponse("What is your name?");
+            Console.WriteLine($"Welcome, {name}!");
+
+            foreach(Room room in house.Rooms)
             {
                 if (GetYesNo("Do you want to see the: " + room.Name))
                 {
                     room.ShowItems();
-
                 }
             }
             Console.WriteLine("Have a wonderful day");
